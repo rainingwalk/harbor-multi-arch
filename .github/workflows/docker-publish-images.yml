@@ -20,8 +20,6 @@ jobs:
           - jobservice
           - log
           - nginx
-          - notary-server
-          - notary-signer
           - portal
           - prepare
           - redis

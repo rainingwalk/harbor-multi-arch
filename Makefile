@@ -8,6 +8,6 @@ dep:
 	git submodule foreach -q --recursive 'git reset --hard && git checkout ${VERSION}'
 
 patch:
-	cd harbor && sh -c "curl https://github.com/goharbor/harbor/compare/$(VERSION)...morlay:patch-2.9.1.patch | git apply -v"
+	cd harbor && sh -c "curl https://github.com/goharbor/harbor/compare/$(VERSION)...morlay:harbor:patch-v2.9.1.patch | git apply -v"
 	# cd harbor && sh -c "curl https://github.com/goharbor/harbor/compare/$(VERSION)...morlay:patch-$(VERSION).patch | git apply -v"
 

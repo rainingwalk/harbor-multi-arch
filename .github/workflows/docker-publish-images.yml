@@ -30,7 +30,7 @@ jobs:
         working-directory: ./harbor
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -90,7 +90,7 @@ jobs:
         working-directory: ./harbor
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           submodules: true
 
@@ -103,15 +103,15 @@ jobs:
         with:
           driver: docker-container
           driver-opts: network=host
-          use: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
+          use: true
+
+      - run: cd .. && make patch
 
       - uses: docker/login-action@v2
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-
-      - run: cd .. && make patch
 
       - id: prepare
         run: echo "tag=$(cat ../version)" >> $GITHUB_ENV

@@ -103,6 +103,7 @@ jobs:
         with:
           driver: docker-container
           driver-opts: network=host
+          use: linux/amd64,linux/arm64,linux/arm/v7,linux/arm/v6
 
       - uses: docker/login-action@v2
         with:
